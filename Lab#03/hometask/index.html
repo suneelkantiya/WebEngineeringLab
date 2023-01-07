@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Login Form with validation Example</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+
+
+<div id="login-form-wrap">
+  <h2>Login</h2>
+  <form id="login-form" style="height: 400px;">
+    <p>
+    <input type="text" id="username" name="username" placeholder="Username" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p>
+    <input type="password" id="password" name="password" placeholder="Password" required><i class="validation"><span></span><span></span></i>
+    </p>
+    <p> 
+    <input type="button" id="login" value="Login" onclick="authenticate();" />
+    </p>
+  </form>
+  <div id="create-account-wrap">
+    <p>Not a member? <a href="#">Create Account</a><p>
+  </div><!--create-account-wrap-->
+</div><!--login-form-wrap-->
+<!-- partial -->
+
+<script>
+  function authenticate(){
+    let user =document.getElementById("username").value;
+    let pass =document.getElementById("password").value;
+    
+    let param = user;
+    sessionStorage.setItem("val",param); 
+    //document.getElementById("ok").innerHTML=param;
+//validating
+    if(user =="faraz" && pass =="hello"){
+      alert("Login Succesfull");
+      window.location="Lab3.html"
+     // document.getElementById("ok").innerHTML = user;
+    }
+    else if(user =="zawar" && pass =="hello1"){
+      alert("Login Succesfull");
+      window.location="Lab3.html"
+     // document.getElementById("ok").innerHTML = user;
+    }
+    
+
+    else{
+      alert("Login Unsuccesfull");
+    }
+    
+  }
+</script>
+  
+</body>
+</html>

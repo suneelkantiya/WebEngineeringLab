@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="test">Calculator</h1>
+    <h1 id="test2"> </h1>
+    <p> 
+        <input type="button" id="login" value="ADDITION" onclick="work('+');" />
+        <input type="button" id="login" value="MUlTIPLY" onclick="work('*');" />
+        <input type="button" id="login" value="SUBTRACT" onclick="work('-');" />
+        <input type="button" id="login" value="DIVIDE" onclick="work('/');" />
+    </p>
+
+    <script>
+        
+        function Calculator(refreshCallback) {
+            
+            
+            
+            
+        }
+
+        function refreshContactList(op1,op2,sign) {
+            let c= null;
+            if(sign == "+"){
+                alert(op1+op2)
+                
+            }
+
+            else if(sign == "-"){
+                alert(op1-op2);
+            }
+
+            else if(sign == "*"){
+                alert(op1*op2);
+            }
+
+            else if(sign == "/"){
+                alert(op1/op1);
+            }
+
+            else{
+               alert("invalid sign");
+            }
+        }
+
+        //Calculator(refreshContactList(1,2,"+"));
+
+        function work(param){
+            Calculator(refreshContactList(3,2,param));
+            
+        }
+
+        console.log("---this keyword");
+        function Student(fname,lname){
+            this.fname =fname;
+            this.lname=lname;
+            this.getfullname =function(){
+                return "FULLNAME: "+this.fname+" "+this.lname;
+            }
+        }
+
+            student =new Student("faraz","gul");
+            console.log(student.fname);
+            console.log(student.lname);
+            console.log(student.getfullname());
+
+            
+        
+            function Start(){
+                for (let i = 1; i <= 5; i++) {
+                    (function (i) {
+                        setTimeout(function () {
+                            console.log(i)
+                        }, i * 1000)
+                    })(i)
+                }
+
+            }
+            //time interval
+            //Start();
+
+            console.log("---Module");
+            var SSUET = (function(){
+                var IT = (function(){
+                    var name = 'faraz';
+                    var teachProgramming = function(){ return `${name} is teaching`; };
+                    return {
+                        teachProgramming
+                    };
+                  }());
+
+                var BOARD = (function(){
+                    var name = 'faraz';
+                    var decideStrategy = function() { return `${name} is deciding strategy`; };
+                    return {
+                        decideStrategy
+                    };
+                  }());
+
+                return{
+                    IT,
+                    BOARD
+                };
+
+              }());
+          
+
+            console.log(SSUET.IT.teachProgramming());
+            console.log(SSUET.BOARD.decideStrategy());  
+           
+            
+            console.log("----CLosure");
+
+            async function getProgramResults() {
+                var a = console.log(48);
+                var b = console.log(50);
+                var s = console.log(await runProgramPromise());
+                var c = console.log(45);
+            }
+             
+            async function runProgramPromise() {
+                return {
+                    s: 50
+                };
+            }
+
+            getProgramResults()
+        
+
+
+        
+
+       
+    </script>
+
+    
+</body>
+</html>
+
+

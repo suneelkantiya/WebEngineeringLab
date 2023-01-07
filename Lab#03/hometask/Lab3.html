@@ -1,0 +1,272 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab#3 – DOM</title>
+
+
+</head>
+
+<body class="back">
+
+    <style>
+        .back {
+            background-image: url("Background.jpg");
+            background-repeat: no-repeat;
+
+            background-size: cover;
+
+        }
+
+        .button-style {
+            border: 1px solid blue;
+            border-radius: 25px;
+            background-color: red;
+            color: white;
+            display: inline-block;
+            width: 150px;
+        }
+
+        h1 {
+
+            position: relative;
+            color: rgba(12, 12, 183, 0.59);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 60px;
+            margin-block-start: 2px;
+
+
+        }
+
+        h2 {
+
+            position: relative;
+            color: rgba(12, 12, 183, 0.59);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 30px;
+            margin-block-start: 2px;
+
+
+        }
+
+        p {
+
+            position: relative;
+            color: rgba(12, 12, 183, 0.59);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            margin-block-start: -28px;
+            margin-block-end: 30px;
+        }
+
+        table {
+
+            position: relative;
+            color: rgba(12, 12, 183, 0.59);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-size: 20px;
+            margin: block start 25px;
+            
+            margin-block-end: 60px;
+        }
+
+        .hags {
+            left: 8px;
+        }
+
+        input {
+
+            background: #5E5DF0;
+            border-radius: 999px;
+            box-shadow: #5E5DF0 0 10px 20px -10px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            font-family: Inter, Helvetica, "Apple Color Emoji", "Segoe UI Emoji", NotoColorEmoji, "Noto Color Emoji", "Segoe UI Symbol", "Android Emoji", EmojiSymbols, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            line-height: 24px;
+            opacity: 1;
+            outline: 0 solid transparent;
+            padding: 19px 18px;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            width: fit-content;
+            word-break: break-word;
+            border: 0;
+            margin-block-end: 1%;
+        }
+    </style>
+    <h1 id="Name">Name</h1>
+    
+    <div id="det">
+        <p>Seasoned Java developer with 10 years experience working with Agile and designing of software solutions.
+            <br>Offering strong Java skills and working experience with SQL (MySQL or PostgreSQL) and NoSQL <br>(MongoDB
+            or Cassandra), Cloud Infrastructure, JPA and ORM frameworks.</p>
+    </div>
+    <table id="studentCourses" class="courses">
+        <thead>
+            <tr>
+                <th>Course ID #</th>
+                <th>Course Name</th>
+                <th>Credit Hours</th>
+                <th>Year Taken</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="row1" class="row">
+                <td>Course 1</td>
+                <td>&nbsp;Web Engineering</td>
+                <td>3 credit</td>
+                <td>&nbsp;2021</td>
+            </tr>
+            <tr id="row2" class="row">
+                <td>Course 2</td>
+                <td>&nbsp;Compiler Construction</td>
+                <td>3 credit</td>
+                <td>&nbsp;2019</td>
+            </tr>
+            <tr id="row3" class="row">
+                <td>Course 3</td>
+                <td>&nbsp;Artifical Intelligence</td>
+                <td>3 credit</td>
+                <td>&nbsp;2018</td>
+            </tr>
+            <tr id="row4" class="row">
+                <td>Course 4</td>
+                <td>&nbsp;Ecommerce</td>
+                <td>3 credit</td>
+                <td>&nbsp;2018</td>
+            </tr>
+        </tbody>
+    </table>
+    </br>
+
+    <input type="button" value="Add New Course" onclick="addNewCourse();" />
+    <input type="button" value="Delete Course" onclick="deleteCourse();" />
+    <input type="button" value="Update Course" onclick="updateCourse();" />
+    <input type="button" value="Search Course" onclick="searchCourse();" />
+    <br>
+    <h2>INTERESTED SECTION</h2>
+    <input type="button" value="SSUET Homepage" onclick="homepage();" />
+    <input type="button" value="Scholarship Notice" onclick="scholarship_notice();" />
+    <input type="button" value="Event Page" onclick="event_page();" />
+
+    <script>
+        var oka = sessionStorage.getItem("val");
+        document.getElementById("Name").innerHTML = oka;
+
+        function homepage() {
+            window.location = "https://www.ssuet.edu.pk/"
+
+        }
+
+        function scholarship_notice() {
+            window.location = "https://www.ssuet.edu.pk/scholarship_notice"
+
+        }
+
+        function event_page() {
+            window.location = "https://www.ssuet.edu.pkhttps://www.ssuet.edu.pk/news-events/"
+
+        }
+
+
+
+
+
+        //This declarative function will be called on 'Add New Row' button click and add new row
+        function addNewCourse() {
+
+            const details = prompt("please enter course ID ,Course Name ,Credit Hours,Year Taken (sperated-by-commas)");
+            if (details) {
+                const id = details.split(',')[0];
+                const name = details.split(',')[1];
+                const credit = details.split(',')[2];
+                const year = details.split(',')[3];
+                //1 - Find the 'body' element
+                const body = document.querySelector('tbody');
+                //2 - Create elements using document.createElement API (method)
+                const row = document.createElement('tr');
+                //Create 'tr' element
+                const tdCourseID = document.createElement('td');
+
+                //Create 'td' element
+                const tdCourseName = document.createElement('td');
+                //Create 'td' element
+                const tdCredithour = document.createElement('td');
+
+                const tdYearTaken = document.createElement('td');
+                //Create 'td' element
+
+                //3 - Update td's 'innerHTML' (basically element content - anything within the angle brackets)
+                tdCourseID.innerHTML = "Course " + id;
+                tdCourseName.innerHTML = name;
+                tdCredithour.innerHTML = credit + " credit";
+                tdYearTaken.innerHTML = year;
+
+                //4 - Insert newly created 'td's into newly created 'tr' using  element's appendChild API
+                row.appendChild(tdCourseID);
+                row.appendChild(tdCourseName);
+                row.appendChild(tdCredithour);
+                row.appendChild(tdYearTaken);
+                //5 - Finally insert newly created 'row' into 'body' element
+                body.appendChild(row);
+                row.style.backgroundColor = 'yellow';
+                row.style.color = 'brown';
+            }
+        }
+        function deleteCourse() {
+            //Ask for course# using prompt
+            const courseId = prompt('Please enter course#');
+            //If user has entered course#
+            if (courseId) {
+                //Find the row containing the 'course #' entered by the user
+                const row = document.getElementById('row' + courseId);
+                if (row) {
+                    //Find the parent of the 'row' just found so that it can be removed from its child list
+                    const body = document.querySelector('tbody');
+                    //Finally remove it from 'tbody' element
+                    body.removeChild(row);
+                }
+            }
+        }
+
+        function searchCourse() {
+
+            const search = prompt("Enter Course Number to Search");
+            if (search) {
+                const row = document.getElementById('row' + search);
+                row.style.backgroundColor = 'yellow';
+                row.style.color = 'brown';
+            }
+        }
+
+
+        function updateCourse() {
+            //Ask the course# and year taken
+            const newCourseYear = prompt('Please enter course# and new year delimited by comma');
+            //If the user has entered course# and year taken
+            if (newCourseYear) {
+                //Split the comma separated input entered by the  user. Example input; 3,2021
+                const courseId = newCourseYear.split(',')[0];
+                const courseYear = newCourseYear.split(',')[1];
+                //Find the row containing the 'course #' entered by the user
+                const row = document.getElementById('row' + courseId);
+                if (row) {
+                    //Find the 'year taken' td element within the  'row' entered by the user
+                    const tdCredithour = row.querySelector('#row' + courseId + ' > td:nth-child(4)');
+                    //Finally update the new 'year taken' entered  by the user using 'innerHTML' property of element
+                    tdCredithour.innerHTML = courseYear;
+                }
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

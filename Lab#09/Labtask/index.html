@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Webpack Lab</title>
+  <link rel="stylesheet" href="dist/assets/style.css">
+</head>
+<body>
+  <h1>Webpack Lab</h1>
+
+  <!-- Add Student Form -->
+  <form id="add-student-form">
+    <h2>Add Student</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" required>
+    <br>
+    <input type="submit" value="Add Student">
+  </form>
+
+  <!-- Add Faculty Form -->
+  <form id="add-faculty-form">
+    <h2>Add Faculty</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" required>
+    <br>
+    <input type="submit" value="Add Faculty">
+  </form>
+
+  <!-- Add Event Form -->
+  <form id="add-event-form">
+    <h2>Add Event</h2>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" required>
+    <br>
+    <input type="submit" value="Add Event">
+  </form>
+
+  <!-- List -->
+  <h2>List</h2>
+  <ul id="list"></ul>
+
+  <!-- Vendor Scripts -->
+  <script src="dist/vendor.bundle.js"></script>
+
+  <!-- App Script -->
+  <script src="dist/app.bundle.js"></script>
+</body>
+</html>
+
+

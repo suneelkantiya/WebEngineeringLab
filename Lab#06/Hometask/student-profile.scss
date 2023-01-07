@@ -1,0 +1,49 @@
+@import "colors";
+@import "variables";
+@import "reset";
+
+.student-profile {
+  width: 500px;
+  margin: 0 auto;
+  border: 1px solid $border-color;
+  border-radius: 5px;
+  padding: 20px;
+
+  .avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .name {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: $primary-color;
+  }
+
+  .info {
+    margin-top: 20px;
+    font-size: 1.5em;
+
+    .item {
+      margin-bottom: 10px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .label {
+        display: inline-block;
+        width: 100px;
+        font-weight: bold;
+      }
+
+      .value {
+        display: inline-block;
+      }
+    }
+  }
+}

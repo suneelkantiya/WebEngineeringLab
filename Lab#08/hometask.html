@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <h1>Stopwatch</h1>
+        <h2>JavaScript Stopwatch by faraz, zawar, sunil, naufil</h2>
+        <p><span id="seconds">00</span>:<span id="tens">00</span></p>
+        <button id="button-start">Start</button>
+        <button id="button-stop">Stop</button>
+        <button id="button-reset">Reset</button>
+        </div> 
+        
+
+        <script>
+            window.onload = function () {
+  
+            var seconds = 00; 
+            var tens = 00; 
+            var appendTens = document.getElementById("tens")
+            var appendSeconds = document.getElementById("seconds")
+            var buttonStart = document.getElementById('button-start');
+            var buttonStop = document.getElementById('button-stop');
+            var buttonReset = document.getElementById('button-reset');
+            var Interval ;
+
+            buttonStart.onclick = function() {
+                
+                clearInterval(Interval);
+                Interval = setInterval(startTimer, 10);
+            }
+            
+                buttonStop.onclick = function() {
+                clearInterval(Interval);
+            }
+            
+
+            buttonReset.onclick = function() {
+                clearInterval(Interval);
+                tens = "00";
+                seconds = "00";
+                appendTens.innerHTML = tens;
+                appendSeconds.innerHTML = seconds;
+            }
+            
+            
+            
+            function startTimer () {
+                tens++; 
+                
+                if(tens <= 9){
+                appendTens.innerHTML = "0" + tens;
+                }
+                
+                if (tens > 9){
+                appendTens.innerHTML = tens;
+                
+                } 
+                
+                if (tens > 99) {
+                console.log("seconds");
+                seconds++;
+                appendSeconds.innerHTML = "0" + seconds;
+                tens = 0;
+                appendTens.innerHTML = "0" + 0;
+                }
+                
+                if (seconds > 9){
+                appendSeconds.innerHTML = seconds;
+                }
+            
+            }
+            
+
+            }
+
+        </script>
+        
+        
+        
+        
+        
+        
+        
+    <script>
+
+        console.log("----------SUBSCRIBE AND PUBLISH----------");
+        class Pubsub {
+            constructor() {
+                this.events = {};
+            }
+
+            subscription (eventName, func) {
+                return {
+                subscribe: () => {
+                    if (this.events[eventName]) {
+                    this.events[eventName].push(func);
+                    console.log(`${func.name} has subscribed to ${eventName} Topic!`)
+                    } else {
+                    this.events[eventName] = [func];
+                    console.log(`${func.name} has subscribed to ${eventName} Topic!`)
+                    }
+                },
+
+
+                }
+            } 
+
+            publish(eventName, ...args) {
+                const funcs = this.events[eventName];
+                if (Array.isArray(funcs)) {
+                funcs.forEach((func) => {
+                    func.apply(null, args);
+                });
+                }
+            }
+            }
+
+            const speak = (param) => {
+            console.log(`I am ${param}`);
+            };
+
+            const greetAll = (x, y, z,l) => {
+            console.log(`Hello ${x}, ${y}, ${z},${l}`);
+            };
+
+            const pubsub = new Pubsub();
+
+            pubsub.subscription("Exam", greetAll).subscribe() 
+
+            pubsub.subscription("Exam Results", speak).subscribe() 
+            
+
+
+            pubsub.publish("Exam", " Faraz gul", "Zawar", "Sunil "," Naufil"); 
+
+            pubsub.publish("Exam Results", "Faraz gul"); 
+            
+
+        
+
+        
+
+
+
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

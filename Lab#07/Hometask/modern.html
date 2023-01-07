@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>
+Generate a n-digit number using JavaScript
+</title>
+<style>
+body {
+text-align: center;
+}
+h1 {
+color: green;
+}
+#geeks {
+color: green;
+font-size: 29px;
+font-weight: bold;
+}
+</style>
+</head>
+<body>
+<h1>
+GeeksforGeeks
+</h1>
+<p>
+Click on the button to generate random
+</p>
+<button onclick="gfg();">
+click here
+</button>
+<p id="geeks">
+</p>
+<script>
+var up = document.getElementById('GFG_UP');
+var down = document.getElementById('geeks');
+function gfg() {
+var minm = 10000;
+var maxm = 99999;
+down.innerHTML = Math.floor(Math
+.random() * (maxm - minm + 1)) + minm;
+}
+</script>
+</body>
+</html>
